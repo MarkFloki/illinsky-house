@@ -1,0 +1,35 @@
+import { Component, OnInit } from '@angular/core';
+import { Apartment } from '../../apartment.model';
+import { ApartmentService } from '../../services/apartment.service';
+import { FilterCriteria } from '../filter/filter.component';
+
+
+@Component({
+  selector: 'app-apartment-list',
+  templateUrl: './apartment-list.component.html',
+  styleUrls: ['./apartment-list.component.css']
+})
+export class ApartmentListComponent implements OnInit {
+  allApartments: Apartment[] = [];
+  filteredApartments: Apartment[] = [];
+
+  constructor(private apartmentService: ApartmentService) {}
+
+  ngOnInit(): void {
+    this.allApartments = this.apartmentService.getApartments();
+    this.filteredApartments = [...this.allApartments];
+  }
+
+  applyFilter(criteria: FilterCriteria): void {
+    this.filteredApartments = this.allApartments.filter((apt) => {
+      const matchesRooms = criteria.rooms.length === 0 || criteria.rooms.includes(apt.rooms);
+      const matchesMin = criteria.minArea === null || apt.area >= criteria.minArea;
+      const matchesMax = criteria.maxArea === null || apt.area <= criteria.maxArea;
+      return matchesRooms && matchesMin && matchesMax;
+    });
+  }
+
+  trackById(index: number, item: Apartment): number {
+    return item.id;
+  }
+}

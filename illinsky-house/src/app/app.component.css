@@ -1,0 +1,14 @@
+.apartment-list {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .apartment-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  img {
+    max-width: 100%;
+  }

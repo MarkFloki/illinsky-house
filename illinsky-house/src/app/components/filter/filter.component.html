@@ -1,0 +1,42 @@
+<div class="filters">
+    <!-- Фильтр по количеству комнат -->
+    <div class="filter-section">
+      <h4>Количество комнат</h4>
+      <div class="room-filters">
+        <label *ngFor="let room of roomOptions">
+          <input 
+            type="checkbox" 
+            [value]="room"
+            (change)="onRoomCheckboxChange(room, $event.target.checked)"
+          />
+          {{ room }} 
+        </label>
+      </div>
+    </div>
+  
+    <!-- Фильтр по площади -->
+    <div class="filter-section">
+      <h4>Площадь (м²)</h4>
+      <div class="area-filters">
+        <label>
+          От: 
+          <input 
+            type="number" 
+            [value]="minArea ?? ''" 
+            (input)="onMinAreaChange($event.target.value)" 
+            placeholder="мин." 
+          />
+        </label>
+        <label>
+          До: 
+          <input 
+            type="number" 
+            [value]="maxArea ?? ''" 
+            (input)="onMaxAreaChange($event.target.value)" 
+            placeholder="макс." 
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+  
