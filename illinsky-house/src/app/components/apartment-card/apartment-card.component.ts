@@ -1,4 +1,3 @@
-// src/app/components/apartment-card/apartment-card.component.ts
 import { Component, Input } from '@angular/core';
 import { Apartment } from '../../models/apartment.model';
 

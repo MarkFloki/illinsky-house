@@ -1,18 +1,14 @@
 <div class="apartment-card">
-    <!-- Изображение квартиры (плейсхолдер) -->
     <img [src]="apartment.imageUrl" alt="Изображение квартиры" class="thumbnail">
     
-    <!-- Название/заголовок квартиры -->
     <h3>{{ apartment.title }}</h3>
     
-    <!-- Описание: количество комнат, площадь и цена -->
     <p>
       {{ apartment.rooms }} комн., 
       {{ apartment.area }} м², 
       {{ apartment.price | number }} $
     </p>
     
-    <!-- Кнопка "Подробнее" (пока без действия) -->
     <button type="button">Подробнее</button>
   </div>
   

@@ -1,4 +1,3 @@
-// src/app/services/apartment.service.ts
 import { Injectable } from '@angular/core';
 import { Apartment } from '../models/apartment.model';
 
@@ -6,7 +5,6 @@ import { Apartment } from '../models/apartment.model';
   providedIn: 'root'
 })
 export class ApartmentService {
-  // Статический mock-список квартир
   private apartments: Apartment[] = [
     {
       id: 1,
@@ -14,7 +12,7 @@ export class ApartmentService {
       rooms: 1,
       area: 56.9,
       price: 75000,
-      imageUrl: 'assets/img/placeholder.png'  // условный путь к картинке
+      imageUrl: 'assets/img/placeholder.png' 
     },
     {
       id: 2,
@@ -56,10 +54,9 @@ export class ApartmentService {
       price: 130000,
       imageUrl: 'assets/img/placeholder.png'
     }
-    // ... можно добавить больше квартир для примера
+  
   ];
 
-  // Метод получения всех квартир (в реальности мог быть HTTP запрос)
   getApartments(): Apartment[] {
     return this.apartments;
   }
